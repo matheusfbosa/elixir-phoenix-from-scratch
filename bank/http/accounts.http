@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:4000
+@userId = 1
+@fromAccountId = 1
+@toAccountId = 2
+@bearerToken = SFMyNTY.g2gDdAAAAAF3B3VzZXJfaWRhAW4GAI078H2LAWIAAVGA.gyAdtfmhyZ5NF25zvwarUChmxPcn1Wymnfx7Z5kcYU0
+
+### Create account
+POST {{baseUrl}}/api/accounts
+Content-Type: application/json
+Authorization: Bearer {{bearerToken}}
+
+{
+    "user_id": {{userId}},
+    "balance": 100
+}
+
+### Create transaction
+POST {{baseUrl}}/api/accounts/transaction
+Content-Type: application/json
+Authorization: Bearer {{bearerToken}}
+
+{
+    "from_account_id": {{fromAccountId}},
+    "to_account_id": {{toAccountId}},
+    "value": 10
+}

@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:4000
+@userId = 1
+@bearerToken = SFMyNTY.g2gDdAAAAAF3B3VzZXJfaWRhAW4GAI078H2LAWIAAVGA.gyAdtfmhyZ5NF25zvwarUChmxPcn1Wymnfx7Z5kcYU0
+
+### Create user
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+
+{
+    "name": "Bosa",
+    "email": "bosa@gmail.com",
+    "cep": "29560000",
+    "password": "123456"
+}
+
+### Login user
+POST {{baseUrl}}/api/users/login
+Content-Type: application/json
+
+{
+    "id": {{userId}},
+    "password": "123456"
+}
+
+### Get user
+GET {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{bearerToken}}
+
+### Update user
+PUT {{baseUrl}}/api/users/{{userId}}
+Content-Type: application/json
+Authorization: Bearer {{bearerToken}}
+
+{
+    "name": "Bosa",
+    "email": "bosa@gmail.com",
+    "cep": "29560000",
+    "password": "123456"
+}
+
+### Delete user
+DELETE {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{bearerToken}}
